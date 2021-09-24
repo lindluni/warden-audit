@@ -9,6 +9,7 @@ const _Octokit = Octokit.plugin(enterpriseServer30Admin, retry, throttling);
 (async function main() {
     const token = core.getInput('TOKEN', {required: true, trimWhitespace: true})
     const url = core.getInput('URL', {required: true, trimWhitespace: true})
+    const user = core.getInput('USER', {required: true, trimWhitespace: true})
 
     let client = new _Octokit({
         auth: token,
@@ -30,7 +31,7 @@ const _Octokit = Octokit.plugin(enterpriseServer30Admin, retry, throttling);
 
     console.log(process.env)
     const impersonationToken = await client.request('POST /admin/users/{username}/authorizations', {
-        username: process.env.GHES_USER,
+        username: user,
         scopes: [
             'repo'
         ]
