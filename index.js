@@ -102,12 +102,15 @@ const _Octokit = Octokit.plugin(enterpriseServer30Admin, retry, throttling);
         } catch (e) {
             fail(`Failed fetching repos: ${e}`)
         }
+
         core.info('Writing file to disk')
         try {
             await fs.writeFileSync('audit-log.json', JSON.stringify(access))
         } catch (e) {
             fail(`Failed writing file to disk: ${e}`)
         }
+
+        core.info('Audit Log:')
         core.info(JSON.stringify(access))
     } catch (e) {
         core.error(`Unable to retrieve input: ${e}`)
