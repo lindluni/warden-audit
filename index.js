@@ -29,6 +29,7 @@ const _Octokit = Octokit.plugin(enterpriseServer30Admin, retry, throttling);
 
     })
 
+    core.info(`Creating impersonation token for user: ${user}`)
     const impersonationToken = await client.request('POST /admin/users/{username}/authorizations', {
         username: user,
         scopes: [
@@ -55,12 +56,16 @@ const _Octokit = Octokit.plugin(enterpriseServer30Admin, retry, throttling);
         orgs: [],
         repos: []
     }
+
+    core.info(`Fetch orgs for user`)
     const orgs = await client.paginate(client.orgs.listForAuthenticatedUser, {
         per_page: 100
     })
     for (const org of orgs) {
         access.orgs.push(org.login)
     }
+
+    core.info(`Fetch repos for user`)
     const repos = await client.paginate(client.repos.listForAuthenticatedUser, {
         per_page: 100
     })
@@ -70,5 +75,6 @@ const _Octokit = Octokit.plugin(enterpriseServer30Admin, retry, throttling);
             permission: repo.permissions
         })
     }
-    console.log(JSON.stringify(access))
+    core.info('Audit Log:')
+    core.info(JSON.stringify(access))
 })()
