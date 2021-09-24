@@ -2,11 +2,11 @@
 
 ```yaml
 name: Audit User Access
-on: 
+on:
   workflow_dispatch:
     inputs:
       ghes-user:
-        description: 'GitHub user handle to audit'     
+        description: 'GitHub user handle to audit'
         required: true
 jobs:
   audit:
@@ -19,4 +19,9 @@ jobs:
           url: https://<ghes_url>/api/v3
           user: ${{ github.event.inputs.ghes-user }}
           token: ${{ secrets.SITE_ADMIN_TOKEN }}
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: audit-log
+          path: audit-log.json
 ```
