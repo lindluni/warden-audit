@@ -5,6 +5,9 @@ inputs:
   url:
     description: URL of the enterprise server
     required: true
+  user:
+    description: GHES user to audit
+    required: true
   token:
     description: GitHub site admin PAT
     required: true
