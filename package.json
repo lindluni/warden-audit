@@ -1,14 +1,8 @@
 {
   "name": "warden-audit",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "author": "Brett Logan",
   "dependencies": {
     "@actions/core": "^1.5.0",
     "@octokit/plugin-enterprise-server": "^10.6.4",
