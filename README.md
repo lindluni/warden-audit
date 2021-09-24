@@ -15,4 +15,7 @@ jobs:
     steps:
       - name: Query User
         uses: lindluni/warden-audit@main
+        with:
+          url: https://<ghes_url>/api/v3
+          token: ${{ secrets.SITE_ADMIN_TOKEN }}
 ```
