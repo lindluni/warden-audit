@@ -1,0 +1,13 @@
+name: 'GitHub Enterprise User Access Report'
+author: 'Brett Logan'
+description: 'Retrieves all of the repos, permissions, and orgs a user has access to on a GHES'
+inputs:
+  url:
+    description: URL of the enterprise server
+    required: true
+  token:
+    description: GitHub site admin PAT
+    required: true
+runs:
+  using: node12
+  main: dist/index.js
