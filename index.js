@@ -29,7 +29,6 @@ const _Octokit = Octokit.plugin(enterpriseServer30Admin, retry, throttling);
 
     })
 
-    console.log(process.env)
     const impersonationToken = await client.request('POST /admin/users/{username}/authorizations', {
         username: user,
         scopes: [
