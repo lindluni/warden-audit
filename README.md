@@ -5,7 +5,7 @@ name: Audit User Access
 on: 
   workflow_dispatch:
     inputs:
-      USER:
+      ghes-user:
         description: 'GitHub user handle to audit'     
         required: true
 jobs:
@@ -17,5 +17,6 @@ jobs:
         uses: lindluni/warden-audit@main
         with:
           url: https://<ghes_url>/api/v3
+          user: ${{ github.event.inputs.ghes-user }}
           token: ${{ secrets.SITE_ADMIN_TOKEN }}
 ```
