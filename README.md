@@ -1,6 +1,6 @@
 # warden-audit
 
-Retrieves all of the repos, permissions, and orgs a user has access to on a GHES
+Retrieves all of the repos, permissions, and orgs a user has access to on a GHES instance by impersonating the user
 
 ```yaml
 name: Audit User Access
