@@ -4,7 +4,7 @@
   "license": "MIT",
   "author": "Brett Logan",
   "dependencies": {
-    "@actions/core": "^1.5.0",
+    "@actions/core": "^1.9.1",
     "@octokit/plugin-enterprise-server": "^10.6.4",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.5.2",
